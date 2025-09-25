@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap');
+
+/* Import Bootstrap CSS */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+/* Custom CSS Variables */
+:root {
+  --bs-primary: #0d6efd;
+  --bs-secondary: #6c757d;
+  --bs-success: #198754;
+  --bs-info: #0dcaf0;
+  --bs-warning: #ffc107;
+  --bs-danger: #dc3545;
+  --japanese-font: 'Noto Sans JP', 'Hiragino Kaku Gothic Pro', 'Meiryo', 'MS Gothic', sans-serif;
+}
+
+/* Base Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  line-height: 1.6;
+}
+
+/* Custom Components */
+.card-hover {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.gradient-primary {
+  background: linear-gradient(135deg, #0d6efd 0%, #0056b3 100%);
+}
+
+.gradient-success {
+  background: linear-gradient(135deg, #198754 0%, #146c43 100%);
+}
+
+.gradient-warning {
+  background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+}
+
+.gradient-danger {
+  background: linear-gradient(135deg, #dc3545 0%, #b02a37 100%);
+}
+
+/* Japanese Text Styling */
+.japanese-text {
+  font-family: var(--japanese-font);
+  line-height: 1.8;
+}
+
+.kanji-large {
+  font-size: 2.5rem;
+  font-weight: 400;
+  font-family: var(--japanese-font);
+}
+
+.hiragana-text {
+  font-size: 1.25rem;
+  font-family: var(--japanese-font);
+  color: #6c757d;
+}
+
+/* Custom Badges */
+.study-streak-badge {
+  background: linear-gradient(45deg, #ff6b35, #f7931e);
+  color: white;
+  border-radius: 25px;
+  padding: 8px 16px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+}
+
+.jlpt-badge {
+  background: linear-gradient(45deg, #4facfe, #00f2fe);
+  color: white;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Custom Buttons */
+.btn-gradient-primary {
+  background: linear-gradient(135deg, #0d6efd 0%, #0056b3 100%);
+  border: none;
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-gradient-primary:hover {
+  background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+  color: white;
+}
+
+.btn-outline-gradient {
+  background: transparent;
+  border: 2px solid #0d6efd;
+  color: #0d6efd;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-gradient:hover {
+  background: linear-gradient(135deg, #0d6efd 0%, #0056b3 100%);
+  border-color: #0056b3;
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* Stats Cards */
+.stat-card {
+  border-left: 4px solid var(--bs-primary);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  border-left-color: var(--bs-success);
+  background-color: #f8f9fa;
+}
+
+.stat-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+/* Loading Animations */
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid var(--bs-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Custom Form Styles */
+.form-floating > .form-control:focus ~ label {
+  color: var(--bs-primary);
+}
+
+.form-floating > .form-control:focus {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Navigation Styles */
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Dashboard Specific */
+.welcome-card {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.quick-action-card {
+  border: 2px dashed #dee2e6;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.quick-action-card:hover {
+  border-color: var(--bs-primary);
+  background-color: rgba(13, 110, 253, 0.05);
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .kanji-large {
+    font-size: 2rem;
+  }
+  
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+  
+  .study-streak-badge,
+  .jlpt-badge {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .card {
+    box-shadow: none;
+    border: 1px solid #dee2e6;
+  }
+}
+
+/* Accessibility */
+.btn:focus,
+.form-control:focus {
+  outline: 2px solid var(--bs-primary);
+  outline-offset: 2px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}

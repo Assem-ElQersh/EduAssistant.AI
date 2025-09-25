@@ -1,0 +1,1 @@
+# AI Educational Platform Backend

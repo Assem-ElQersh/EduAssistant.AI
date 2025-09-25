@@ -1,0 +1,18 @@
+
+                Japanese Particles (助詞)
+                
+                が (ga) - Subject marker
+                Example: 私が学生です。(I am a student.)
+                
+                を (wo/o) - Object marker  
+                Example: 本を読みます。(I read a book.)
+                
+                に (ni) - Direction, time, indirect object
+                Example: 学校に行きます。(I go to school.)
+                
+                で (de) - Location of action, means
+                Example: 図書館で勉強します。(I study at the library.)
+                
+                と (to) - "and", "with"
+                Example: 友達と映画を見ます。(I watch a movie with friends.)
+                

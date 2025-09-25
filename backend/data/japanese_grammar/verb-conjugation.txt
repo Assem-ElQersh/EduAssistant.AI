@@ -1,0 +1,15 @@
+
+                Japanese Verb Conjugation
+                
+                U-verbs (五段動詞):
+                - 読む (yomu) → 読みます (yomimasu) - polite form
+                - 書く (kaku) → 書きます (kakimasu) - polite form
+                
+                Ru-verbs (一段動詞):
+                - 食べる (taberu) → 食べます (tabemasu) - polite form
+                - 見る (miru) → 見ます (mimasu) - polite form
+                
+                Irregular verbs:
+                - する (suru) → します (shimasu) - to do
+                - 来る (kuru) → 来ます (kimasu) - to come
+                
