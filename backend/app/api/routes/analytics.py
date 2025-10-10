@@ -5,11 +5,11 @@ from typing import List, Optional
 from datetime import datetime, timedelta
 from app.db.database import get_db
 from app.core.security import get_current_user, get_current_active_teacher
-from app.models.user import User
+from backend.app.base_models.models import User
 from app.models.analytics import StudySession, LearningAnalytics, WeaknessIdentification
 from app.models.assignment import AssignmentSubmission
 from app.models.quiz import QuizAttempt
-from app.models.course import Enrollment
+from app.base_models.course import Enrollment
 from app.services.analytics_service import AnalyticsService
 
 router = APIRouter()

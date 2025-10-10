@@ -33,6 +33,7 @@ class Assignment(Base):
     __tablename__ = 'assignments'
 
     id = Column(Integer, primary_key=True, index=True)
+    courseID = Column(Integer, nullable=False)
     title = Column(String, nullable=False)
     description = Column(String, nullable=False)
     grade = Column(Integer, nullable=False)

@@ -9,7 +9,7 @@ from app.core.security import (
     create_access_token,
     get_current_user
 )
-from app.models.user import User, UserRole
+from backend.app.base_models.models import User, UserRole
 from app.schemas.user import UserCreate, UserResponse, Token, UserLogin
 from app.core.config import settings
 

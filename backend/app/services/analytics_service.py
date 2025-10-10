@@ -7,7 +7,7 @@ from app.db.database import SessionLocal
 from app.models.analytics import StudySession, LearningAnalytics, WeaknessIdentification
 from app.models.quiz import QuizAttempt
 from app.models.assignment import AssignmentSubmission
-from app.models.user import User
+from backend.app.base_models.models import User
 
 logger = logging.getLogger(__name__)
 

@@ -3,9 +3,9 @@ from sqlalchemy.orm import Session
 from typing import List, Optional
 from app.db.database import get_db
 from app.core.security import get_current_user, get_current_active_teacher
-from app.models.user import User
+from backend.app.base_models.models import User
 from app.models.lesson import Lesson, LessonCompletion
-from app.models.course import Enrollment
+from app.base_models.course import Enrollment
 from app.schemas.lesson import LessonCreate, LessonUpdate, LessonResponse, LessonCompletionResponse
 import logging
 
@@ -28,7 +28,7 @@ async def get_lessons(
     ).first()
     
     # Or check if user is the teacher
-    from app.models.course import Course
+    from app.base_models.course import Course
     course = db.query(Course).filter(Course.id == course_id).first()
     
     if not enrollment and (not course or course.teacher_id != current_user.id):
@@ -66,7 +66,7 @@ async def get_lesson(
         Enrollment.is_active == True
     ).first()
     
-    from app.models.course import Course
+    from app.base_models.course import Course
     course = db.query(Course).filter(Course.id == lesson.course_id).first()
     
     if not enrollment and (not course or course.teacher_id != current_user.id):
@@ -85,7 +85,7 @@ async def create_lesson(
 ):
     """Create a new lesson (teachers only)"""
     # Check if teacher owns the course
-    from app.models.course import Course
+    from app.base_models.course import Course
     course = db.query(Course).filter(Course.id == lesson_data.course_id).first()
     
     if not course or course.teacher_id != current_user.id:
@@ -119,7 +119,7 @@ async def update_lesson(
         )
     
     # Check if teacher owns the course
-    from app.models.course import Course
+    from app.base_models.course import Course
     course = db.query(Course).filter(Course.id == lesson.course_id).first()
     
     if not course or course.teacher_id != current_user.id:
@@ -152,7 +152,7 @@ async def delete_lesson(
         )
     
     # Check if teacher owns the course
-    from app.models.course import Course
+    from app.base_models.course import Course
     course = db.query(Course).filter(Course.id == lesson.course_id).first()
     
     if not course or course.teacher_id != current_user.id:

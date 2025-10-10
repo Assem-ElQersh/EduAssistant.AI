@@ -3,8 +3,8 @@ from sqlalchemy.orm import Session
 from typing import List, Optional
 from app.db.database import get_db
 from app.core.security import get_current_user, get_current_active_teacher
-from app.models.user import User
-from app.models.course import Course, Enrollment
+from backend.app.base_models.models import User
+from app.base_models.course import Course, Enrollment
 from app.schemas.course import CourseCreate, CourseUpdate, CourseResponse, EnrollmentResponse
 import logging
 

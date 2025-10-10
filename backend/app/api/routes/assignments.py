@@ -3,9 +3,9 @@ from sqlalchemy.orm import Session
 from typing import List, Optional
 from app.db.database import get_db
 from app.core.security import get_current_user, get_current_active_teacher
-from app.models.user import User
+from backend.app.base_models.models import User
 from app.models.assignment import Assignment, AssignmentSubmission
-from app.models.course import Enrollment
+from app.base_models.course import Enrollment
 from app.schemas.assignment import (
     AssignmentCreate, 
     AssignmentUpdate, 
@@ -37,7 +37,7 @@ async def get_assignments(
             Enrollment.is_active == True
         ).first()
         
-        from app.models.course import Course
+        from app.base_models.course import Course
         course = db.query(Course).filter(Course.id == course_id).first()
         
         if not enrollment and (not course or course.teacher_id != current_user.id):
@@ -58,7 +58,7 @@ async def get_assignments(
             query = query.filter(Assignment.course_id.in_(enrolled_course_ids))
         else:
             # Teachers see assignments for their courses
-            from app.models.course import Course
+            from app.base_models.course import Course
             teacher_course_ids = db.query(Course.id).filter(
                 Course.teacher_id == current_user.id
             ).subquery()
@@ -90,7 +90,7 @@ async def get_assignment(
         Enrollment.is_active == True
     ).first()
     
-    from app.models.course import Course
+    from app.base_models.course import Course
     course = db.query(Course).filter(Course.id == assignment.course_id).first()
     
     if not enrollment and (not course or course.teacher_id != current_user.id):
@@ -109,7 +109,7 @@ async def create_assignment(
 ):
     """Create a new assignment (teachers only)"""
     # Check if teacher owns the course
-    from app.models.course import Course
+    from app.base_models.course import Course
     course = db.query(Course).filter(Course.id == assignment_data.course_id).first()
     
     if not course or course.teacher_id != current_user.id:
@@ -143,7 +143,7 @@ async def update_assignment(
         )
     
     # Check if teacher owns the course
-    from app.models.course import Course
+    from app.base_models.course import Course
     course = db.query(Course).filter(Course.id == assignment.course_id).first()
     
     if not course or course.teacher_id != current_user.id:
@@ -176,7 +176,7 @@ async def delete_assignment(
         )
     
     # Check if teacher owns the course
-    from app.models.course import Course
+    from app.base_models.course import Course
     course = db.query(Course).filter(Course.id == assignment.course_id).first()
     
     if not course or course.teacher_id != current_user.id:
@@ -300,7 +300,7 @@ async def grade_submission(
         )
     
     # Check if teacher owns the course
-    from app.models.course import Course
+    from app.base_models.course import Course
     course = db.query(Course).filter(Course.id == assignment.course_id).first()
     
     if not course or course.teacher_id != current_user.id:

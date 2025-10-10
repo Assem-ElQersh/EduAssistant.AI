@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from typing import List, Optional
 from app.db.database import get_db
 from app.core.security import get_current_user
-from app.models.user import User
+from backend.app.base_models.models import User
 from app.models.analytics import ChatMessage
 from app.services.rag_service import RAGService
 from app.schemas.rag import ChatRequest, ChatResponse, DocumentUpload
